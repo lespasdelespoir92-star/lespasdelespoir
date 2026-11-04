@@ -1,0 +1,2 @@
+Déposez ici vos photos (.jpg, .jpeg, .png ou .webp), puis ajoutez leur nom dans la liste PHOTOS
+en bas du fichier galerie.html. Conseil : réduisez les photos à environ 1600 px de large.

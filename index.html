@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les pas de l'espoir – Association</title>
+  <meta name="description" content="Les pas de l'espoir : association d'accompagnement des personnes en situation de handicap et de leurs aidants à Villeneuve-la-Garenne.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="script.js?v=3" defer></script>
+  <script src="chatbot.js?v=3" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- En-tête (généré par script.js, identique sur toutes les pages) -->
+  <header id="site-header" class="site-header"></header>
+
+  <main id="contenu">
+
+    <!-- Vidéo plein écran -->
+    <section class="hero" aria-label="Vidéo de présentation">
+      <video id="hero-video"
+             autoplay muted loop playsinline preload="auto"
+             poster="images/video-poster.jpg">
+        <source src="videos/les-pas-de-l-espoir.mp4" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </video>
+
+      <button id="sound-btn" class="sound-btn" type="button"
+              aria-pressed="false" aria-label="Activer le son de la vidéo">
+        <!-- Son coupé -->
+        <svg class="icon icon-off" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 9v6h4l5 4V5L7 9H3z"/>
+          <path d="M16.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <!-- Son activé -->
+        <svg class="icon icon-on" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 9v6h4l5 4V5L7 9H3z"/>
+          <path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="sound-label">Son&nbsp;: désactivé</span>
+      </button>
+    </section>
+
+    <!-- Phrase d'accroche + bouton adhésion -->
+    <section class="intro" aria-labelledby="slogan">
+      <h1 id="slogan" class="slogan">
+        C’est l’<span>espoir</span> des pas,<br>
+        et des pas vers l’<span>espoir</span>.
+      </h1>
+      <a class="btn btn-accent btn-big" href="adherer.html">Adhésion</a>
+    </section>
+
+  </main>
+
+  <!-- Pied de page (identique sur toutes les pages, généré par script.js) -->
+  <footer id="site-footer" class="site-footer"></footer>
+
+</body>
+</html>

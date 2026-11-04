@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galerie – Les pas de l'espoir</title>
+  <meta name="description" content="Les photos des sorties, événements et activités de l'association Les pas de l'espoir.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="script.js?v=3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- En-tête (généré par script.js, identique sur toutes les pages) -->
+  <header id="site-header" class="site-header"></header>
+
+  <main id="contenu">
+    <section class="page-title">
+      <h1>Galerie</h1>
+      <p>Les moments forts de l’association en images.</p>
+    </section>
+
+    <section class="section">
+      <div id="galerie" class="gallery" aria-live="polite"></div>
+      <p id="galerie-vide" class="card card-lead lead" hidden>Les photos arrivent bientôt. Revenez nous voir&nbsp;!</p>
+      <p class="center"><a class="btn" href="nos-activites.html">Nos activités</a> <a class="btn btn-accent" href="actualites.html">Actualités</a></p>
+    </section>
+
+    <!-- Visionneuse (agrandissement des photos) -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
+      <button class="lb-close" type="button" aria-label="Fermer">&times;</button>
+      <button class="lb-prev" type="button" aria-label="Photo précédente">&#8249;</button>
+      <figure>
+        <img id="lb-img" src="" alt="">
+        <figcaption id="lb-cap"></figcaption>
+      </figure>
+      <button class="lb-next" type="button" aria-label="Photo suivante">&#8250;</button>
+    </div>
+
+    <script>
+      /* ============================================================
+         AJOUTER UNE PHOTO :
+         1. Déposez le fichier dans le dossier  images/galerie/
+         2. Ajoutez une ligne dans la liste ci-dessous :
+            { src: 'images/galerie/nom-du-fichier.jpg', alt: 'Description de la photo' },
+         ============================================================ */
+      const PHOTOS = [
+        // { src: 'images/galerie/exemple.jpg', alt: 'Sortie inclusive' },
+      ];
+
+      const grid = document.getElementById('galerie');
+      const empty = document.getElementById('galerie-vide');
+      const box = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lb-img');
+      const lbCap = document.getElementById('lb-cap');
+      let current = 0;
+
+      if (!PHOTOS.length) { empty.hidden = false; }
+
+      PHOTOS.forEach((p, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'gallery-item';
+        b.setAttribute('aria-label', 'Agrandir : ' + (p.alt || 'photo ' + (i + 1)));
+        const img = document.createElement('img');
+        img.src = p.src; img.alt = p.alt || ''; img.loading = 'lazy';
+        b.appendChild(img);
+        b.addEventListener('click', () => open(i));
+        grid.appendChild(b);
+      });
+
+      function show(i) {
+        current = (i + PHOTOS.length) % PHOTOS.length;
+        lbImg.src = PHOTOS[current].src;
+        lbImg.alt = PHOTOS[current].alt || '';
+        lbCap.textContent = PHOTOS[current].alt || '';
+      }
+      function open(i) { show(i); box.hidden = false; document.body.style.overflow = 'hidden'; box.querySelector('.lb-close').focus(); }
+      function close() { box.hidden = true; document.body.style.overflow = ''; }
+
+      box.querySelector('.lb-close').addEventListener('click', close);
+      box.querySelector('.lb-prev').addEventListener('click', () => show(current - 1));
+      box.querySelector('.lb-next').addEventListener('click', () => show(current + 1));
+      box.addEventListener('click', e => { if (e.target === box) close(); });
+      document.addEventListener('keydown', e => {
+        if (box.hidden) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
+    </script>
+  </main>
+
+  <!-- Pied de page (généré par script.js, identique sur toutes les pages) -->
+  <footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>
