@@ -656,3 +656,9 @@ body::after  { width: 360px; height: 360px; bottom: -150px; left: -150px; backgr
 /* Textes : pas de mot tout seul sur la dernière ligne */
 h1, h2, h3, .slogan, .quote, .lead, .page-title p, .card-lead p, .note { text-wrap: balance; }
 p, li { text-wrap: pretty; }
+
+/* Cartes côte à côte : boutons alignés en bas, à la même hauteur */
+.grid > .card:has(> .btn:last-child) { display: flex; flex-direction: column; }
+.grid > .card > .btn:last-child { margin-top: auto; align-self: flex-start; }
+.grid > .contact-card > .btn:last-child,
+.grid > .social-card > .btn:last-child { align-self: center; }
