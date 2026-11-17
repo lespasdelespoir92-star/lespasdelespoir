@@ -51,7 +51,7 @@ if (footer) {
       <p class="footer-contact">
         <a href="tel:+33769506878">07 69 50 68 78</a>
         <a href="mailto:lespasdelespoir92@gmail.com">lespasdelespoir92@gmail.com</a>
-        <span>66 avenue Jean Moulin, Villeneuve-la-Garenne</span>
+        <span>66 avenue Jean Moulin, 92390 Villeneuve-la-Garenne</span>
       </p>
       <p class="footer-copy">© ${new Date().getFullYear()} Les pas de l’espoir – Association</p>
     </div>`;

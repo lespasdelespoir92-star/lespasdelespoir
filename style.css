@@ -4,18 +4,23 @@
    ========================================================= */
 
 :root {
-  /* Couleurs du logo */
-  --rose:        #E83880;   /* rose du logo */
-  --violet:      #A04898;   /* violet du logo */
+  /* Charte du dépliant et de la grille tarifaire 2026-2027 */
+  --rose:        #C4246C;   /* rose framboise (Pôle 01, « Avec adhésion », contact) */
+  --violet:      #8F3C8C;   /* prune (Pôle 02, « Sans adhésion ») */
+  --violet-fonce:#6B2D78;   /* violet (Pôle 03, « Location ») */
+  --bordeaux:    #8C1F56;   /* Pôle 04 */
+  --prune:       #4A1F5C;   /* titres et prix */
 
-  /* Couleurs de la feuille de tarifs */
-  --rose-doux:   #E575CF;   /* pastilles "Avec adhésion" */
-  --bleu-nuit:   #453E8E;   /* illustration */
-  --bleu-glace:  #E0FAFF;   /* fond bleu clair */
-  --turquoise:   #66C2CE;   /* feuillages */
+  --rose-doux:   #D46093;   /* fin du dégradé rose */
+  --rose-pale:   #FCDDEB;   /* cercles décoratifs */
+  --lavande:     #E9D6F0;   /* cercles décoratifs */
+  --bleu-glace:  #FBEAF2;   /* fonds doux (ancien nom conservé) */
+  --bleu-nuit:   #6B2D78;   /* ancien nom conservé */
+  --turquoise:   #8F3C8C;   /* ancien nom conservé */
+  --trait:       #F0E3EE;   /* séparateurs */
 
-  --texte:       #2B2540;
-  --fond:        #FFFFFF;   /* fond du site : blanc */
+  --texte:       #3B1A49;
+  --fond:        #FFF7FB;   /* fond rose très pâle des documents */
 
   --header-h:    112px;
   --radius:      999px;
@@ -95,7 +100,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--violet);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(160, 72, 152, .28);
+  box-shadow: 0 6px 16px rgba(74, 31, 92, .28);
 }
 .btn[aria-current="page"] { background: var(--violet); color: #fff; }
 
@@ -106,9 +111,9 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
 }
 .btn-accent:hover, .btn-accent:focus-visible {
-  background: #cf2a6c;
-  border-color: #cf2a6c;
-  box-shadow: 0 6px 16px rgba(232, 56, 128, .35);
+  background: #A01D58;
+  border-color: #A01D58;
+  box-shadow: 0 6px 16px rgba(196, 36, 108, .35);
 }
 
 :focus-visible { outline: 3px solid var(--rose-doux); outline-offset: 3px; }
@@ -224,9 +229,9 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-don svg { width: 22px; height: 22px; fill: currentColor; }
 .btn-don:hover, .btn-don:focus-visible {
-  background: #cf2a6c; border-color: #cf2a6c;
+  background: #A01D58; border-color: #A01D58;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(232, 56, 128, .35);
+  box-shadow: 0 8px 20px rgba(196, 36, 108, .35);
 }
 
 .footer-contact {
@@ -236,11 +241,11 @@ a { color: inherit; text-decoration: none; }
 }
 .footer-contact a:hover { color: var(--rose); }
 
-.footer-copy { margin: 20px 0 0; font-size: .82rem; color: #7d7690; }
+.footer-copy { margin: 20px 0 0; font-size: .82rem; color: #8A7A93; }
 
 /* ---------- Pages intérieures ---------- */
 
-.btn-accent[aria-current="page"] { background: #cf2a6c; border-color: #cf2a6c; }
+.btn-accent[aria-current="page"] { background: #A01D58; border-color: #A01D58; }
 
 .page-title {
   text-align: center;
@@ -260,7 +265,7 @@ a { color: inherit; text-decoration: none; }
   margin: 18px auto 0;
   background: linear-gradient(90deg, var(--rose), var(--violet));
 }
-.page-title p { margin: 18px 0 0; font-size: 1.15rem; color: #5b5470; }
+.page-title p { margin: 18px 0 0; font-size: 1.15rem; color: #6E5A78; }
 
 .section { max-width: 1100px; margin: 0 auto; padding: 36px 24px; }
 .section-title {
@@ -282,7 +287,7 @@ a { color: inherit; text-decoration: none; }
   border: 2px solid var(--bleu-glace);
   border-radius: 28px;
   padding: 30px 28px;
-  box-shadow: 0 10px 30px rgba(160, 72, 152, .10);
+  box-shadow: 0 10px 30px rgba(74, 31, 92, .10);
 }
 .card h2, .card h3 { margin: 0 0 12px; color: var(--violet); font-weight: 700; }
 .card h2 { font-size: 1.6rem; }
@@ -308,7 +313,7 @@ a { color: inherit; text-decoration: none; }
 .link-card:hover, .link-card:focus-visible {
   transform: translateY(-6px);
   border-color: var(--rose);
-  box-shadow: 0 16px 36px rgba(232, 56, 128, .22);
+  box-shadow: 0 16px 36px rgba(196, 36, 108, .22);
 }
 .link-card .link-more { margin-top: auto; font-weight: 700; color: var(--rose); }
 .link-card:hover h3 { color: var(--rose); }
@@ -351,7 +356,7 @@ a { color: inherit; text-decoration: none; }
 .t-name { font-size: 1.05rem; }
 .t-price { font-weight: 700; text-align: right; color: var(--violet); }
 .t-price small { font-weight: 500; font-style: italic; color: var(--texte); font-size: .9rem; }
-.note { text-align: center; font-style: italic; color: #5b5470; }
+.note { text-align: center; font-style: italic; color: #6E5A78; }
 
 /* Adhérer */
 .price-card { text-align: center; background: linear-gradient(135deg, var(--rose), var(--violet)); border: 0; color: #fff; padding: 54px 24px; }
@@ -395,10 +400,10 @@ a { color: inherit; text-decoration: none; }
 .social-fb .social-icon { background: var(--bleu-nuit); }
 .social-tt .social-icon { background: #2B2540; }
 .social-card h3 { margin-bottom: 4px; }
-.social-card .handle { margin: 0 0 14px; color: #5b5470; font-size: .95rem; word-break: break-word; }
+.social-card .handle { margin: 0 0 14px; color: #6E5A78; font-size: .95rem; word-break: break-word; }
 .qr { width: 180px; height: 180px; margin: 0 auto 18px; border: 2px solid var(--bleu-glace); border-radius: 16px; padding: 6px; background: #fff; }
 
-.map { height: 420px; border-radius: 28px; overflow: hidden; border: 2px solid var(--bleu-glace); box-shadow: 0 10px 30px rgba(160, 72, 152, .10); z-index: 1; }
+.map { height: 420px; border-radius: 28px; overflow: hidden; border: 2px solid var(--bleu-glace); box-shadow: 0 10px 30px rgba(74, 31, 92, .10); z-index: 1; }
 .map-fallback { padding: 40px 24px; text-align: center; }
 .gmap { position: relative; }
 .gmap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -453,7 +458,7 @@ a { color: inherit; text-decoration: none; }
   padding: 14px 22px 14px 18px; border: 0; border-radius: var(--radius);
   background: linear-gradient(135deg, var(--rose), var(--violet)); color: #fff;
   font: 600 1rem var(--font); cursor: pointer;
-  box-shadow: 0 10px 28px rgba(160, 72, 152, .45);
+  box-shadow: 0 10px 28px rgba(74, 31, 92, .45);
   transition: transform .25s;
 }
 .chat-launcher:hover, .chat-launcher:focus-visible { transform: translateY(-3px) scale(1.03); }
@@ -491,7 +496,7 @@ a { color: inherit; text-decoration: none; }
 .chat-form input { flex: 1; min-width: 0; border: 2px solid #e5d9ec; border-radius: var(--radius); padding: 11px 16px; font: 500 .95rem var(--font); }
 .chat-form input:focus { outline: none; border-color: var(--rose); }
 .chat-form button { border: 0; border-radius: var(--radius); padding: 0 20px; background: var(--rose); color: #fff; font: 700 .95rem var(--font); cursor: pointer; }
-.chat-form button:hover { background: #cf2a6c; }
+.chat-form button:hover { background: #A01D58; }
 
 @media (max-width: 520px) {
   .chat-launcher span { display: none; }
@@ -544,4 +549,106 @@ a { color: inherit; text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* =========================================================
+   Charte graphique du dépliant et de la grille tarifaire 2026-2027
+   ========================================================= */
+
+/* Fond rose pâle avec les grands cercles pastel des documents */
+body { position: relative; overflow-x: hidden; }
+body::before, body::after {
+  content: ""; position: fixed; z-index: -1; border-radius: 50%; pointer-events: none;
+}
+body::before { width: 420px; height: 420px; top: -140px; right: -140px; background: var(--rose-pale); }
+body::after  { width: 360px; height: 360px; bottom: -150px; left: -150px; background: var(--lavande); }
+.site-header { background: rgba(255, 255, 255, .92); backdrop-filter: blur(6px); }
+
+/* Titres : prune foncé, petit sur-titre en capitales espacées */
+.page-title h1 { color: var(--prune); font-weight: 700; }
+.page-title h1::after { width: 64px; height: 4px; background: var(--rose); margin-left: auto; margin-right: auto; }
+.eyebrow { margin: 0 0 8px; font-size: .85rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--rose); }
+.slogan { color: var(--prune); }
+.slogan span { color: var(--rose); }
+.section-title { color: var(--prune); }
+.card h2, .card h3 { color: var(--prune); }
+.card { border: 0; box-shadow: 0 8px 28px rgba(74, 31, 92, .08); }
+
+/* Boutons */
+.btn { border-color: var(--violet); color: var(--violet); }
+.btn:hover, .btn:focus-visible, .btn[aria-current="page"] { background: var(--violet); color: #fff; }
+.btn-accent { background: var(--rose); border-color: var(--rose); color: #fff; }
+
+/* Puces rondes comme sur le dépliant */
+.checklist li { border-bottom-color: var(--trait); padding-left: 26px; font-weight: 500; }
+.checklist li::before { width: 10px; height: 10px; left: 4px; border-radius: 50%; rotate: 0deg; background: var(--rose); }
+
+/* ---------- Les 4 pôles ---------- */
+.grid-poles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pole { padding: 0 0 22px; overflow: hidden; border: 0; }
+.pole .puzzle { display: none; }
+.pole-head { display: block; margin: 0 0 14px; padding: 22px 28px 24px; border-radius: 28px 28px 22px 22px; color: #fff; }
+.pole-head h2 { color: #fff !important; font-size: 1.6rem; line-height: 1.15; }
+.pole-num { margin: 0 0 6px !important; font-size: .85rem; font-weight: 500; color: rgba(255,255,255,.9); }
+.pole .checklist, .pole .pole-sub, .pole .pole-note { margin-left: 28px !important; margin-right: 28px !important; }
+.pole-sub { margin-top: 10px !important; margin-bottom: 2px !important; font-size: 1rem !important; }
+.pole-note { padding: 14px 18px; background: var(--bleu-glace); border-radius: 18px; font-size: .95rem; }
+
+.pole-pink    .pole-head { background: linear-gradient(135deg, #C4246C, #D9468A); }
+.pole-violet2 .pole-head { background: linear-gradient(135deg, #8F3C8C, #A5509F); }
+.pole-navy    .pole-head { background: linear-gradient(135deg, #6B2D78, #7E3A8C); }
+.pole-teal    .pole-head { background: linear-gradient(135deg, #8C1F56, #A42A66); }
+.pole-pink    .checklist li::before { background: #C4246C; }
+.pole-violet2 .checklist li::before { background: #8F3C8C; }  .pole-violet2 .pole-sub { color: #8F3C8C; }
+.pole-navy    .checklist li::before { background: #6B2D78; }
+.pole-teal    .checklist li::before { background: #8C1F56; }
+
+/* ---------- Tarifs (comme la grille 2026-2027) ---------- */
+.tarif-wrap { max-width: 1000px; }
+.tarif-block { padding: 28px 32px 22px; background: #fff; border-radius: 28px; box-shadow: 0 8px 28px rgba(74, 31, 92, .08); }
+.tarif-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+.pill-label {
+  position: static; display: inline-block; margin: 0;
+  padding: 10px 26px; border-radius: 999px;
+  background: linear-gradient(135deg, #C4246C, #D9468A); color: #fff;
+  font-size: .9rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+}
+.tarif-block:nth-of-type(2) .pill-label { background: linear-gradient(135deg, #8F3C8C, #A5509F); }
+.tarif-block:nth-of-type(3) .pill-label { background: linear-gradient(135deg, #6B2D78, #7E3A8C); }
+.tarif-head-price { margin: 0; font-size: 1.6rem; font-weight: 700; color: var(--prune); }
+.tarif-head-price small { font-size: 1rem; font-weight: 400; }
+.tarif-list { padding: 0; border-radius: 0; background: transparent; }
+.tarif-list li { padding: 11px 0; border-bottom: 1px solid var(--trait); align-items: center; }
+.t-name { font-size: 1rem; }
+.t-price { color: var(--prune); white-space: nowrap; }
+.t-price small { font-style: normal; font-weight: 700; color: var(--prune); font-size: inherit; }
+.tarif-list li.tarif-sub {
+  display: flex; align-items: center; gap: 10px; justify-content: flex-start;
+  padding: 22px 0 6px; border-bottom: 0;
+  font-weight: 700; font-size: 1.05rem; color: var(--violet);
+}
+.tarif-list li.tarif-sub::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--rose); }
+.tarif-list li.tarif-sub:first-child { padding-top: 10px; }
+.tarif-block .note { text-align: left; font-size: .88rem; margin: 14px 0 0; }
+
+/* Adhérer : carte prix en dégradé rose */
+.price-card { background: linear-gradient(135deg, #C4246C, #8F3C8C); }
+
+/* Qui sommes-nous */
+.about-text strong { color: var(--rose); }
+.values { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+.values span { padding: 8px 20px; border-radius: 999px; background: #fff; color: var(--violet); font-weight: 600; }
+.join-icon { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #FFE4F3; color: var(--rose); margin-bottom: 12px; }
+.join-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+@media (max-width: 900px) { .grid-poles { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .tarif-block { padding: 22px 18px 18px; }
+  .tarif-list li { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; text-align: left; }
+  .tarif-list li.tarif-sub { justify-content: flex-start; }
+  .t-name { font-size: .92rem; }
+  .t-price { text-align: right; white-space: normal; font-size: .92rem; }
+  .tarif-head-price { font-size: 1.3rem; }
+  body::before { width: 260px; height: 260px; top: -110px; right: -110px; }
+  body::after  { width: 220px; height: 220px; }
 }

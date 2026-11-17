@@ -6,37 +6,41 @@
 (() => {
   const TEL = '07 69 50 68 78';
   const MAIL = 'lespasdelespoir92@gmail.com';
-  const ADRESSE = '66 avenue Jean Moulin, Villeneuve-la-Garenne';
+  const ADRESSE = '66 avenue Jean Moulin, 92390 Villeneuve-la-Garenne';
 
   const lien = (href, texte) => `<a href="${href}">${texte}</a>`;
   const CONTACT = `Téléphone : <a href="tel:+33769506878">${TEL}</a><br>E-mail : <a href="mailto:${MAIL}">${MAIL}</a>`;
   const PRENDRE_CONTACT = `Pour plus de précisions, contactez-nous :<br>${CONTACT}`;
 
-  // ----- Les activités (nom, pôle, information tarif) -----
-  const P1 = 'Pôle Accompagnement & Familles';
-  const P2 = 'Pôle Thérapie & Bien-être';
-  const P3 = 'Pôle Activités, Développement & Inclusion';
+  // ----- Les activités (nom, pôle, tarif) – dépliant et grille tarifaire 2026-2027 -----
+  const P1 = 'Pôle 01 Familles & Parentalité';
+  const P2 = 'Pôle 02 Thérapie & Bien-être';
+  const P3 = 'Pôle 03 Scolaire & Apprentissages';
+  const P4 = 'Pôle 04 Inclusion & Sensibilisation';
   const TARIF_PREF = 'Les adhérents bénéficient d’un tarif préférentiel. Pour le détail, contactez-nous.';
   const TARIF_CONTACT = 'Pour connaître le tarif, contactez-nous.';
+  const AV = (p) => `Avec adhésion : <b>${p}</b>.`;
+  const AVS = (p, q) => `Avec adhésion : <b>${p}</b>. Sans adhésion : <b>${q}</b>.`;
 
   const ACTIVITES = [
-    { keys: ['groupe de parole', 'groupes de parole', 'parole'], nom: 'Les groupes de parole', pole: P1, tarif: TARIF_CONTACT },
-    { keys: ['repit*'], nom: 'Le répit aidant', pole: P1, tarif: TARIF_PREF },
-    { keys: ['parentalite'], nom: 'L’accompagnement à la parentalité', pole: P1, tarif: TARIF_CONTACT },
-    { keys: ['soutien*'], nom: 'Le soutien des familles', pole: P1, tarif: TARIF_CONTACT },
-    { keys: ['art therapie', 'arttherapie', 'psychotherap*', 'psychologue'], nom: 'L’art-thérapie (ou la psychothérapie)', pole: P2, tarif: 'Elle est <b>incluse</b> avec l’adhésion (50 € / an).' },
-    { keys: ['orthopedagog*'], nom: 'L’orthopédagogie', pole: P2, tarif: TARIF_CONTACT },
-    { keys: ['snoezelen'], nom: 'Le Snoezelen', pole: P2, tarif: TARIF_CONTACT },
-    { keys: ['psio', 'vibroacoustique', 'siege*'], nom: 'Le siège vibroacoustique (PSIO)', pole: P2, tarif: TARIF_CONTACT },
-    { keys: ['therapeute*'], nom: 'Les interventions de thérapeutes spécialisés', pole: P2, tarif: TARIF_CONTACT },
-    { keys: ['sport*'], nom: 'Les activités sportives adaptées', pole: P3, tarif: TARIF_CONTACT },
-    { keys: ['stage*', 'reussite'], nom: 'Le stage de réussite (handicap invisible)', pole: P3, tarif: TARIF_PREF },
-    { keys: ['competence*'], nom: 'Le développement des compétences', pole: P3, tarif: TARIF_CONTACT },
-    { keys: ['educatif*', 'educatifs'], nom: 'Les ateliers éducatifs', pole: P3, tarif: TARIF_CONTACT },
-    { keys: ['sortie*'], nom: 'Les sorties', pole: P3, tarif: TARIF_PREF },
-    { keys: ['inclusion*'], nom: 'Les actions d’inclusion sociale', pole: P3, tarif: TARIF_CONTACT },
-    { keys: ['sensibilisation*'], nom: 'La sensibilisation au handicap', pole: P3, tarif: TARIF_CONTACT },
-    { keys: ['evenement*'], nom: 'L’organisation d’événements', pole: P3, tarif: TARIF_CONTACT },
+    { keys: ['cafe*', 'parents aidants', 'aidant*', 'groupe de parole', 'parole'], nom: 'Le café des parents aidants', pole: P1, tarif: 'Il est <b>inclus</b> avec l’adhésion (50 € / an).' },
+    { keys: ['parentalite', 'programme parentalite'], nom: 'Le programme parentalité', pole: P1, tarif: AVS('30 € le cycle de 3 séances', '60 € le cycle') },
+    { keys: ['guidance*'], nom: 'La guidance parentale', pole: P1, tarif: AVS('40 € la séance', '60 € la séance') },
+    { keys: ['droit*', 'acces aux droits'], nom: 'L’accès aux droits', pole: P1, tarif: 'Avec adhésion : <b>inclus</b>. Sans adhésion : <b>10 €</b>.' },
+    { keys: ['repit*'], nom: 'Le répit aidant', pole: P2, tarif: TARIF_PREF },
+    { keys: ['art therapie', 'arttherapie'], nom: 'L’art-thérapie pour les enfants', pole: P2, tarif: 'Elle est <b>incluse</b> avec l’adhésion (50 € / an).' },
+    { keys: ['psychotherap*', 'psychologue'], nom: 'La psychothérapie', pole: P2, tarif: TARIF_CONTACT },
+    { keys: ['motrice', 'therapie motrice', 'motricite'], nom: 'La thérapie motrice', pole: P2, tarif: 'Le tarif dépend de la prise en charge. Contactez-nous.' },
+    { keys: ['psio', 'vibroacoustique', 'vibro*', 'siege*'], nom: 'Le siège vibro-acoustique (PSIO)', pole: P2, tarif: AVS('40 € la séance', '60 € la séance') },
+    { keys: ['orthopedagog*'], nom: 'L’orthopédagogie individuelle', pole: P3, tarif: AV('25 € la séance') },
+    { keys: ['soutien scolaire', 'scolaire', 'devoir*', 'ecole'], nom: 'Le soutien scolaire', pole: P3, tarif: AV('120 € par an') },
+    { keys: ['stage*', 'vacances', 'ludo*'], nom: 'Les stages ludo-éducatifs pendant les vacances', pole: P3, tarif: AVS('50 € les 3 matinées', '75 € les 3 matinées') },
+    { keys: ['acquis', 'ateliers acquis'], nom: 'Les ateliers « acquis »', pole: P3, tarif: AV('10 € la séance') },
+    { keys: ['sensibilisation*', 'centre de loisirs', 'centres de loisirs'], nom: 'La sensibilisation des écoles et des centres de loisirs', pole: P4, tarif: TARIF_CONTACT },
+    { keys: ['joelette*', 'mille pattes', 'millepattes'], nom: 'Le mille-pattes inclusif en joëlette', pole: P4, tarif: TARIF_CONTACT },
+    { keys: ['inaya*', 'cup'], nom: 'L’Inaya Cup', pole: P4, tarif: TARIF_CONTACT },
+    { keys: ['journees nationales', 'journee nationale'], nom: 'Les journées nationales', pole: P4, tarif: TARIF_CONTACT },
+    { keys: ['sortie*'], nom: 'Les sorties inclusives', pole: P4, tarif: TARIF_PREF },
   ];
 
   // ----- Les réponses -----
@@ -44,28 +48,31 @@
   // w    : importance (la réponse la plus pertinente est choisie).
   const INTENTS = [
     { id: 'photo', w: 5, keys: ['photobio*', 'photo bio*', 'casque*', 'lumiere'],
-      r: 'Casque de photobiomodulation (séance de 20 min) : <b>40 €</b> avec adhésion, <b>60 €</b> sans adhésion.',
-      chips: ['Adhésion', 'Tous les tarifs'] },
+      r: 'Le casque de photobiomodulation est proposé à la <b>location, sur demande</b>. Contactez-nous pour en savoir plus.',
+      chips: ['Contact', 'Tous les tarifs'] },
     { id: 'oxy', w: 5, keys: ['oxygen*', 'caisson*', 'hyperbar*'],
-      r: 'Oxygénothérapie (séance d’1 h) : <b>50 €</b> avec adhésion. Sans adhésion, le caisson hyperbare est à <b>70 €</b> la séance d’1 h.',
+      r: 'Oxygénothérapie (séance d’1 h) : <b>50 €</b> avec adhésion, <b>70 €</b> sans adhésion.',
       chips: ['Adhésion', 'Tous les tarifs'] },
     { id: 'neuro', w: 5, keys: ['neurofeedback*', 'neuro feedback', 'neuro'],
-      r: 'Neurofeedback (séance de 35 min) : <b>40 €</b> avec adhésion, <b>60 €</b> sans adhésion.',
+      r: 'Neurofeedback dynamique (séance de 35 min) : <b>40 €</b> avec adhésion, <b>60 €</b> sans adhésion.',
       chips: ['Adhésion', 'Tous les tarifs'] },
     { id: 'admin', w: 5, keys: ['administratif*', 'administrative*', 'paperasse*'],
       r: 'Accompagnement administratif : <b>50 €</b> par consultation avec adhésion, <b>60 €</b> sans adhésion. Il fait partie du ' + P1 + '.',
       chips: ['Adhésion', 'Tous les tarifs'] },
     { id: 'supp', w: 5, keys: ['supplementaire*', 'frere*', 'soeur*', 'accompagnant*'],
-      r: 'Pour les adhérents, une personne supplémentaire peut être ajoutée pour <b>+25 €</b>, uniquement avec filiation directe : mère, père, frère, sœur.',
+      r: 'Pour les séances du pôle Thérapie & Bien-être, les adhérents peuvent ajouter une personne pour <b>+25 €</b>, uniquement en filiation directe : mère, père, frère, sœur.',
       chips: ['Tous les tarifs'] },
+    { id: 'snoezelen', w: 6, keys: ['snoezelen'],
+      r: 'Espace Snoezelen, avec adhésion : séance enfant + parent <b>20 €</b> / 45 min, petit groupe (2-3 enfants) <b>15 €</b> / enfant, séance adulte <b>10 €</b> / 30 min.<br>Sans adhésion : <b>35 €</b>, <b>25 €</b> / enfant et <b>20 €</b>.<br>Pour les structures, location de la salle : <b>45 € / h</b>.',
+      chips: ['Adhésion', 'Tous les tarifs'] },
     { id: 'adhesion', w: 4, keys: ['adhesion*', 'adherer', 'adhere*', 'adherent*', 'cotisation*', 'membre*', 'inscri*'],
-      r: `L’adhésion coûte <b>50 € par an</b>. Elle inclut l’art-thérapie ou la psychothérapie, et donne droit à des tarifs préférentiels (sorties, répit aidant, stage de réussite, séances).<br>${lien('adherer.html', 'Voir la page Adhérer')}<br><br>${PRENDRE_CONTACT}`,
+      r: `L’adhésion coûte <b>50 € par an</b>. Elle donne un accès privilégié à des activités variées et des dispositifs de bien-être innovants, à tarifs préférentiels. Le café des parents aidants, l’accès aux droits et l’art-thérapie enfants sont <b>inclus</b>.<br>${lien('adherer.html', 'Voir la page Adhérer')}<br><br>${PRENDRE_CONTACT}`,
       chips: ['Tous les tarifs', 'Contact'] },
     { id: 'tarifs', w: 3, keys: ['tarif*', 'prix', 'combien', 'cout*', 'coute*', 'payant*', 'euro*', '€'],
-      r: `<b>Adhésion : 50 € / an.</b><br>Avec adhésion : art-thérapie ou psychothérapeute inclus, tarif préférentiel pour les sorties, le répit aidant et le stage de réussite.<br>Sans adhésion : casque de photobiomodulation 60 €, caisson hyperbare 70 €, neurofeedback 60 €, accompagnement administratif 60 €.<br>${lien('tarifs.html', 'Voir tous les tarifs')}`,
-      chips: ['Photobiomodulation', 'Neurofeedback', 'Oxygénothérapie', 'Adhésion'] },
+      r: `<b>Adhésion : 50 € / an.</b><br>Avec adhésion, par exemple : oxygénothérapie 50 € / 1 h, neurofeedback 40 € / 35 min, siège PSIO 40 €, guidance parentale 40 €, orthopédagogie 25 €, soutien scolaire 120 € / an, Snoezelen dès 10 €.<br>Sans adhésion : oxygénothérapie 70 €, neurofeedback 60 €, siège PSIO 60 €, guidance parentale 60 €…<br>${lien('tarifs.html', 'Voir tous les tarifs 2026-2027')}`,
+      chips: ['Snoezelen', 'Neurofeedback', 'Oxygénothérapie', 'Adhésion'] },
     { id: 'activites', w: 3, keys: ['activite*', 'atelier*', 'propose*', 'pole*', 'accompagnement*', 'therapie*', 'prestation*', 'service*', 'programme*'],
-      r: `Nos activités sont réparties en trois pôles :<br>• <b>${P1}</b> : groupes de parole, répit aidant, parentalité, soutien des familles, accompagnement administratif<br>• <b>${P2}</b> : art-thérapie, orthopédagogie, neurofeedback, oxygénothérapie, Snoezelen, photobiomodulation, siège vibroacoustique…<br>• <b>${P3}</b> : sport adapté, stages de réussite, ateliers éducatifs, sorties, sensibilisation, événements…<br>${lien('nos-activites.html', 'Voir toutes les activités')}`,
+      r: `Nos activités sont réparties en quatre pôles :<br>• <b>${P1}</b> : café des parents aidants, programme parentalité, guidance parentale, accès aux droits, accompagnement administratif<br>• <b>${P2}</b> : art-thérapie enfants, thérapie motrice, psychothérapie, répit aidant et notre espace bien-être (neurofeedback, oxygénothérapie, Snoezelen, photobiomodulation, siège PSIO)<br>• <b>${P3}</b> : orthopédagogie, soutien scolaire, stages ludo-éducatifs, ateliers « acquis »<br>• <b>${P4}</b> : sensibilisation des écoles et centres de loisirs, mille-pattes en joëlette, Inaya Cup, journées nationales, sorties inclusives<br>${lien('nos-activites.html', 'Voir toutes les activités')}`,
       chips: ['Tarifs', 'Adhésion', 'Contact'] },
     { id: 'adresse', w: 4, keys: ['adresse*', 'ou', 'situe*', 'localis*', 'plan', 'venir', 'trouver', 'itineraire*', 'metro', 'bus', 'carte'],
       r: `Nous sommes au <b>${ADRESSE}</b>.<br>${lien('contact.html', 'Voir la carte')}`,
@@ -95,7 +102,7 @@
       r: `Les nouvelles de l’association sont sur la page ${lien('actualites.html', 'Actualités')}.`,
       chips: ['Galerie', 'Réseaux sociaux'] },
     { id: 'asso', w: 3, keys: ['association', 'qui etes', 'qui sommes', 'presentation', 'mission*', 'valeur*', 'but', 'objectif*'],
-      r: `L’association <b>Les Pas de l’Espoir</b> accompagne les familles et les enfants à besoins spécifiques, à chaque étape de leur parcours, avec bienveillance et expertise.<br>${lien('qui-sommes-nous.html', 'En savoir plus')}`,
+      r: `L’association <b>Les Pas de l’Espoir</b> favorise le bien-être, l’accompagnement, le développement et l’inclusion des personnes et des familles, notamment des personnes en situation de handicap ou présentant des besoins spécifiques. Elle est ouverte à tous, à Villeneuve-la-Garenne.<br>${lien('qui-sommes-nous.html', 'En savoir plus')}`,
       chips: ['Activités', 'Adhésion'] },
     { id: 'sante', w: 6, keys: ['medecin*', 'medical*', 'diagnostic*', 'medicament*', 'douleur*', 'urgence*', 'symptome*', 'guerir', 'guerison', 'efficace*', 'soigner', 'maladie*', 'dangereux', 'effet*'],
       r: `Je ne suis pas un professionnel de santé et je ne peux pas donner d’avis médical. Pour toute question sur une séance ou un accompagnement, contactez l’équipe :<br>${CONTACT}<br>En cas d’urgence, appelez le <b>15</b> (SAMU) ou le <b>112</b>.` },
@@ -121,7 +128,7 @@
     const padded = ' ' + norm(text) + ' ';
     let best = null, bestScore = 0;
 
-    // 1) activités précises (non tarifées dans les flyers)
+    // 1) activités précises
     for (const a of ACTIVITES) {
       const n = a.keys.filter(k => hit(padded, k)).length;
       if (n && 4 * n > bestScore) {
