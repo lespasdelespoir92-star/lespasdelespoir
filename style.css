@@ -652,3 +652,7 @@ body::after  { width: 360px; height: 360px; bottom: -150px; left: -150px; backgr
   body::before { width: 260px; height: 260px; top: -110px; right: -110px; }
   body::after  { width: 220px; height: 220px; }
 }
+
+/* Textes : pas de mot tout seul sur la dernière ligne */
+h1, h2, h3, .slogan, .quote, .lead, .page-title p, .card-lead p, .note { text-wrap: balance; }
+p, li { text-wrap: pretty; }
