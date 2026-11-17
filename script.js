@@ -95,6 +95,10 @@ if (video && soundBtn) {
     updateSoundButton();
   });
 
+  // Lecture en boucle (sécurité si un navigateur ignore l'attribut « loop »)
+  video.loop = true;
+  video.addEventListener('ended', () => { video.currentTime = 0; video.play().catch(() => {}); });
+
   // La vidéo démarre muette (obligatoire pour la lecture automatique des navigateurs)
   video.muted = true;
   updateSoundButton();
