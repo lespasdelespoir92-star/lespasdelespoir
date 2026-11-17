@@ -149,7 +149,7 @@ a { color: inherit; text-decoration: none; }
   height: clamp(260px, 50vh, 500px);       /* bannière réduite */
   height: clamp(260px, 50svh, 500px);
   overflow: hidden;
-  background: #7a1a6a;           /* couleur proche de la vidéo pendant le chargement */
+  background: #FFF4FA;           /* couleur de fond de la vidéo « bulles » pendant le chargement */
 }
 
 .hero video {
